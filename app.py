@@ -1,31 +1,31 @@
+# Import dependencies
 from flask import Flask, render_template, request
 import mysql.connector
-import argparse
+import configparser
 
-# setup db
-#db = DB(username="pxHpXYXX51", password="LkdnBV4EJ7", hostname="https://remotemysql.com", dbtype="mysql")
+# Get DB credentials from db.ini
+config = configparser.ConfigParser()
+config.read('db.ini')
+
+# Setup DB Connection
 db = mysql.connector.connect(
   host="remotemysql.com",
   user="pxHpXYXX51",
-  passwd="LkdnBV4EJ7",
+  passwd=config['DATABASE']['password'],
   database="pxHpXYXX51"
 )
 cursor = db.cursor()
 
-# setup flask api
+# Setup Flask API & Routes
 app = Flask(__name__)
 
-'''
-    --- Welcome Page ---
-'''
+# Welcome Route
 @app.route('/')
 def index():
     #return render_template('home.html')
     return 'Welcome to my Flask Blog API, created by Nicholas Ramsay'
 
-'''
-    --- Users ---
-'''
+# Users
 @app.route('/users/')
 @app.route('/users/<id>')
 def getUsers(id = None):
@@ -45,9 +45,7 @@ def getUsers(id = None):
         except:
             return 'No user found.'
 
-'''
-    --- Posts ---
-'''
+# Posts
 @app.route('/posts/')
 @app.route('/posts/<id>')
 def getPosts(id = None):
@@ -67,6 +65,6 @@ def getPosts(id = None):
         except:
             return 'No post found.'
 
-# run the server
+# Start the server
 if __name__ == '__main__':
     app.run()
