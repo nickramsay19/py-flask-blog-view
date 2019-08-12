@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<div class="container">
+    <h1 id="header">Welcome to my blog</h1>
+
+    <h2 class="subheading">Account:</h2>
+    <p>
+        {% if user != None %}
+            Hey {{ user }}, welcome to my blog! <a href="/logout">Logout?</a>
+            
+            <h2 class="subheading">Write a Post:</h2>
+            <form method="post" action="/post">
+                <p><input type=text name=title placeholder="Post title"></p>
+                <p><textarea rows=5 name=body placeholder="Post content"></textarea></p>
+                <p><input type=submit value=Post></p>
+            </form>
+            
+        {% endif %}
+
+        {% if user == None %}
+            <a href="/login">Login</a> to make a post: 
+        {% endif %}
+
+        <!-- Show posts -->
+        <h2 class="subheading">Current Posts:</h2>
+        
+        {% for post in posts %}
+            <div class="post">
+                <h3 class="post-title">{{ post.title }}</h3>
+                <small class="post-credit" style="color: #aaa;">Written by: {{ post.author }}</small>
+                <p>
+                    {{ post.body }}
+                </p>
+            </div>
+        {% endfor %}
+        
+    </p>
+</div>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+    #header{
+        font-size: 3em;
+    }
+
+    .subheading{
+        text-decoration: underline;
+    }
+
+    .post{
+        border-left-style: solid;
+        padding-left: 1em;
+    }
+    .post-title{
+        margin-bottom: 0px;
+    }
+
+</style>

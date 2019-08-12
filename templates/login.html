@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<div class="container">
+        <h1 id="header">Please login</h1>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            <p><input type=text name=username placeholder="Username"></p>
+            <p><input type=password name=pass placeholder="••••••••••••"></p>
+            <p><input type=submit value=Login></p>
+        </form>
+</div>
+
+<style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        #header{
+            font-size: 3em;
+        }
+    
+    </style>

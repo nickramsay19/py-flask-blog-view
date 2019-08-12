@@ -1,4 +1,4 @@
-# py-flask-blog - A blog API written with Flask
+# py-flask-blog-view - A blog API written with Flask with a front-end
 > Created by Nicholas Ramsay
 
 ## Features
