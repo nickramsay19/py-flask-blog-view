@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<div class="container">
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="container">
         <h1 id="header">Please login</h1>
 
         {% if error %}
@@ -11,18 +15,5 @@
             <p><input type=password name=pass placeholder="••••••••••••"></p>
             <p><input type=submit value=Login></p>
         </form>
-</div>
-
-<style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-        }
-        #header{
-            font-size: 3em;
-        }
-    
-    </style>
+    </div>
+{% endblock %}

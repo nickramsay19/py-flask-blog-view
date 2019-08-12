@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+#header{
+    font-size: 3em;
+}
+
+.subheading{
+    text-decoration: underline;
+}
+
+.post{
+    border-left-style: solid;
+    padding-left: 1em;
+}
+.post-title{
+    margin-bottom: 0px;
+}
